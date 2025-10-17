@@ -1,0 +1,15 @@
+CREATE DATABASE IF NOT EXISTS economato
+  CHARACTER SET utf8mb4
+  COLLATE utf8mb4_spanish_ci;
+
+USE economato;
+
+CREATE TABLE IF NOT EXISTS producto (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(120) NOT NULL,
+  codigo_barra VARCHAR(64),
+  imagen VARCHAR(255),
+  pvp DECIMAL(10,2) NOT NULL,
+  fecha_ingreso DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  INDEX idx_nombre (nombre)
+) ENGINE=InnoDB;
